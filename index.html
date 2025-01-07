@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Complex</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Internal CSS -->
+    <style>
+        /* Black container styling */
+        .black-container {
+            background-color: black;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            width: 100%;
+            /* Adjust width as needed */
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Style for the video background container */
+        .video-background-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Full-screen video background */
+        #background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+        }
+
+        /* Content on top of the video */
+        .content {
+            z-index: 1;
+            max-width: 1200px;
+            /* Increased max width */
+            margin: auto;
+            padding: 40px;
+            /* Increased padding for more spacing */
+            background: rgba(0, 0, 0, 0.6);
+            /* Darker background to improve text readability */
+            border-radius: 15px;
+            /* Slightly larger border radius */
+        }
+
+        h1 {
+            font-size: 4rem;
+            /* Increased font size */
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.5rem;
+            /* Increased paragraph font size */
+        }
+
+        a.btn {
+            margin-top: 30px;
+            padding: 20px 40px;
+            /* Larger button */
+            font-size: 1.5rem;
+            /* Increased button text size */
+        }
+
+        .topic-card {
+            position: relative;
+            color: white;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .topic-card:hover {
+            transform: scale(1.05);
+        }
+
+        .topic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .topic-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .topic-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .topic-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .topic-link:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .arrow-icon {
+            background-color: red;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container-fluid bg-black">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <!-- SpaceX Text and Logo on the left side -->
+                    <a class="navbar-brand d-flex align-items-center" href="#">
+                        <span id="brand-name" class="me-2">SpaceX</span> <!-- SpaceX text -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNnvAXsXe9wlVbtxNW7Sndms7Q3xZuqLtLQ&s"
+                            alt="SpaceX Logo" width="50"> <!-- SpaceX logo -->
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Explore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Missions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Technology</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item"></li>
+                            <a class="nav-link" href="LoginSignup.html">LogIn/SignUp</a>
+
+                            </li>
+                        </ul>
+                        <button class="btn btn-danger ms-3">LIVE</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Video Background Section -->
+    <div class="video-background-container">
+        <video autoplay muted loop id="background-video">
+            <source src="(407) Europa Clipper_ Exploring Jupiter’s Ocean Moon (Mission Overview) - YouTube - Google Chrome 2024-09-19 23-09-22.mp4" type="video/mp4">
+        </video>
+
+        <!-- Text Overlay -->
+        <div class="content">
+            <h1>Curious Universe</h1>
+            <p>Step aboard the spaceship that will take us on a poetic journey to the mysterious icy moon of Jupiter, Europa. Join a talk from another world with our flight director Diana Trujillo. And get ready to launch toward the stars alongside Puerto Rican astronaut Marcos Berríos.</p>
+            <a href="#" class="btn btn-danger">Listen to NASA's Curious Universe</a>
+        </div>
+    </div>
+
+
+    <!-- Featured News Section -->
+    <section class="featured-news-section py-5">
+        <div class="container">
+            <div class="featured-news-heading">
+                <h1>Featured News <span class="badge text-danger">Highlights</span></h1>
+                <a href="#" class="more-news-link"></a>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- First News Card -->
+                <div class="col">
+                    <div class="card news-card bg-dark text-white">
+                        <img src="https://img.pikbest.com/wp/202405/climate-change-impact-of-and-global-warming-on-this-element-a-3d-illustration-by-nasa_9857912.jpg!bw700"
+                            class="card-img-top" alt="News Image" width="600" height="400" length="300">
+                        <div class="card-body">
+                            <p class="mb-0"><small>ARTICLE</small></p>
+                            <h5 class="card-title">Global Warming Impact</h5>
+                            <p class="card-text">2 MIN READ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second News Card -->
+                <div class="col">
+                    <a href="spacexNews.html" class="text-decoration-none"> <!-- Wrap the entire card with <a> -->
+                        <div class="card news-card bg-dark text-white">
+                            <img src="https://www.nasa.gov/wp-content/uploads/2022/10/crew_4_aboard_iss.jpg"
+                                class="card-img-top" alt="News Image">
+                            <div class="card-body">
+                                <p class="mb-0"><small>NEWS RELEASE</small></p>
+                                <h5 class="card-title">NASA's SpaceX Crew-9 to Conduct Space Research</h5>
+                                <p class="card-text">3 MIN READ</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <!-- Third News Card -->
+                <div class="col">
+                    <div class="card news-card bg-dark text-white">
+                        <img src="https://nap.nationalacademies.org/cover/13354/450" class="card-img-top"
+                            alt="News Image">
+                        <div class="card-body">
+                            <p class="mb-0"><small>ARTICLE</small></p>
+                            <h5 class="card-title">NASA to Develop Advanced Technology</h5>
+                            <p class="card-text">4 MIN READ</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- fourth News Card -->
+                <div class="col">
+                    <div class="card news-card bg-dark text-white">
+                        <img src="https://i0.wp.com/newspaceeconomy.ca/wp-content/uploads/2024/04/newspaceeconomy_astronauts_standing_on_the_surface_of_earths_mo_d3a90dbf-24e1-45e3-a68d-da03bf52eef4-1.png?fit=1024%2C1024&quality=80&ssl=1"
+                            class="card-img-top" alt="News Image">
+                        <div class="card-body">
+                            <p class="mb-0"><small>NEWS RELEASE</small></p>
+                            <h5 class="card-title">NASA to Develop Lunar Time Standard for Exploration Initiatives </h5>
+                            <p class="card-text">3 MIN READ</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- fifth News Card -->
+                <div class="col">
+                    <div class="card news-card bg-dark text-white">
+                        <img src="https://www.aljazeera.com/wp-content/uploads/2022/09/asteroid.jpg?resize=770%2C513&quality=80"
+                            class="card-img-top" alt="News Image">
+                        <div class="card-body">
+                            <p class="mb-0"><small>NEWS RELEASE</small></p>
+                            <h5 class="card-title">NASA satellite’s collision with asteroid sent boulders into space
+                            </h5>
+                            <a href="spacexNews.html" class="more-news-link"></a>
+                            <p class="card-text">3 MIN READ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sixth News Card -->
+                <div class="col">
+                    <div class="card news-card bg-dark text-white">
+                        <img src="https://www.nasa.gov/wp-content/uploads/2023/10/spacewalker-woody-hoburg.jpg?w=2048"
+                            class="card-img-middle" alt="News Image">
+                        <div class="card-body">
+                            <p class="mb-0"><small>NEWS RELEASE</small></p>
+                            <h5 class="card-title">NASA Sets Coverage of Spacewalks, News Conference for Station
+                                Upgrades</h5>
+                            <p class="card-text">2 MIN READ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="featured-video-section py-5">
+        <div class="container">
+            <div class="row align-items-center black-container"> <!-- Added black-container to the entire row -->
+                <!-- Text Column -->
+                <div class="col-md-6">
+                    <h2 class="text-muted">A Journey Of Universe</h2>
+                    <h1 class="mb-3">Explore the Universe</h1>
+                    <p class="lead">Embark on an awe-inspiring voyage beyond the boundaries of Earth, where the
+                        mysteries of the cosmos unfold. From dazzling nebulae to distant galaxies, the universe reveals
+                        wonders that stretch the imagination. As we venture into the depths of space, we discover the
+                        origins of stars, the secrets of black holes, and the potential for life beyond our own. This
+                        journey to the universe is not just an exploration of the vast unknown, but a testament to human
+                        curiosity and the endless pursuit of knowledge.</p>
+                    <a href="#" class="btn btn-danger mt-3">The Curiosity Rover <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+                <!-- Video Column -->
+                <div class="col-md-6">
+                    <div id="youtube-video"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Main Content Section -->
+    <section class="content-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="https://www.nasa.gov/wp-content/uploads/2022/12/artemis_year_in_review.jpg?w=2048"
+                        alt="Missions" class="img-fluid mb-3">
+                    <h3>Our Missions</h3>
+                    <p>Discover the latest space missions and the journey of humankind beyond Earth.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq8vigKE7r7MskPuD_EbwTabpdhntPzJ646g&s"
+                        alt="Technology" class="img-fluid mb-3">
+                    <h3>Space Technology</h3>
+                    <p>Explore groundbreaking technology and innovation that makes space exploration possible.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/09/cena-lic-lp-nature-cropped.jpg?w=4096&format=jpeg"
+                        alt="Gallery" class="img-fluid mb-3">
+                    <h3>Space Gallery</h3>
+                    <p>View breathtaking images of space, galaxies, planets, and more.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4">More Topics from SpaceX</h1>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://static01.nyt.com/images/2024/01/02/multimedia/27sci-asteroid-03-wqlv/27sci-asteroid-03-wqlv-mediumSquareAt3X.jpg"
+                        alt="Image 1">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Missions</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9x_zs0mVfjvHNnFHeMzl-G_k6pyzN3qWpw&s"
+                        alt="Image 2">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Humans In Space</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://climate.nasa.gov/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMWg2QWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--77165220fd43a28b3284774a3c02e7b6b8ae159b/GISTEMP_Spiral_60sec_F.jpg"
+                        alt="Image 3">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Climate Change</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://m.media-amazon.com/images/I/71OFiL+1oFL.jpg" alt="Image 4">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Our Solar System</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+            <!-- Card 5 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://media.wired.com/photos/5c5a3d4978c63d4dfaaf9bd4/1:1/w_1800,h_1800,c_limit/43895099105_6d7013a5df_o.jpg"
+                        alt="Image 5">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Universe</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHU5qejpcEnA241J_Icbo0oc5AmnhvIxzqqQ&s"
+                        alt="Image 6">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Science News</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://media.wired.com/photos/59443ccf36ebbc129f7410e0/1:1/w_1800,h_1800,c_limit/Rocket-Art-531752474.jpg"
+                        alt="Image 7">
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Aeronautics</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="col-md-3">
+                <div class="topic-card">
+                    <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dW5pdmVyc2V8ZW58MHx8MHx8fDA%3D"
+                        alt="Image 8" >
+                    <div class="topic-content">
+                        <a href="#" class="topic-link">
+                            <span class="topic-title">Technology</span>
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-light py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Space Complex. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- YouTube Iframe API -->
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-video', {
+                height: '315',
+                width: '100%',
+                videoId: '937stSQMr64',  // YouTube video ID
+                playerVars: {
+                    autoplay: 0,
+                    controls: 1,
+                    modestbranding: 1
+                }
+            });
+        }
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
